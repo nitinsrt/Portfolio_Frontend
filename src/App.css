@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  background-color: #e0e1dd;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .App-logo {
@@ -28,11 +33,120 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content-container {
+  width: 100vw;
+  padding: 2%;
+}
+
+.push-text {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 1s, transform 1s;
+}
+
+.img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 10%;
+}
+
+.content-container.animate .push-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.image {
+  width: 20vw;
+  height: 25vw;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+}
+
+.drop-in-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.drop-in-container.animate .custom-component {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.day-mode {
+  background-color: #e0e1dd; /* Day mode background color */
+  color: #0d1b2a; /* Day mode text color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.night-mode {
+  background-color: #0d1b2a; /* Night mode background color */
+  color: #e0e1dd; /* Night mode text color */
+  box-shadow: 0 4px 8px rgb(255, 255, 255, 0.1);
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 40%;
+}
+
+.textContainer {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 60%;
+  height: 100%;
+  flex-direction: column;
+  text-align: left;
+  padding-right: 1vw;
+}
+
+p {
+  margin-left: 3vw;
+  font-size: 1.5vw;
+  color: "#778DA9";
+  line-height: 4vw;
+}
+
+.workExperience {
+  width: 100%;
+  height: 100%;
+  padding: 1vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.expTitleContainer{
+  margin-top: 1.5vw;
+  margin-bottom: 1.5vw;
+}
+
+.skillsContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.introText{
+  margin-left: 1vw;
+  font-size: 1.5vw;
+  color: "#778DA9";
+  line-height: 4vw;
+}
+
+.hobbie{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,0 +1,102 @@
+.header {
+  width: 100vw;
+  height: 9vw;
+  background-color: transparent;
+  position: fixed;
+  z-index: 1200;
+  padding: 1vw;
+}
+
+
+
+.mainContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.leftContainer {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.rightContainer {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+.headerElement {
+  margin-left: 3vw;
+  font-size: 1.5vw;
+  color: "#778DA9";
+  cursor: pointer;
+}
+
+.custom-component {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 1s, transform 1s;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 5.5vw;
+    height: 3vw;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 4vw;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 2vw;
+    width: 2vw;
+    left: 1vw;
+    bottom: 0.6vw;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3; /* Night mode background color */
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(2vw);
+  }
+  
+  .day-mode {
+    background-color: #E0E1DD; /* Day mode background color */
+    color: #333; /* Day mode text color */
+  }
+  
+  .night-mode {
+    background-color: #0D1B2A; /* Night mode background color */
+    color: #fff; /* Night mode text color */
+  }
+

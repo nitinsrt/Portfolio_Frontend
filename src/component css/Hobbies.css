@@ -1,0 +1,30 @@
+.carousel-container {
+    width: 50vw;
+    margin: auto;
+  }
+  
+  .slick-prev,
+  .slick-next {
+    font-size: 24px;
+    color: #000; /* Customize the arrow color */
+  }
+  
+  .slick-prev:hover,
+  .slick-next:hover {
+    color: #ff0000; /* Customize the arrow color on hover */
+  }
+  
+  .slick-dots li button:before {
+    font-size: 14px;
+    color: #000; /* Customize the dot color */
+  }
+  
+  .slick-dots li.slick-active button:before {
+    color: #ff0000; /* Customize the active dot color */
+  }
+
+  .hobbieImg{
+      width: 50vw;
+      height: 30vw;
+  }
+  
