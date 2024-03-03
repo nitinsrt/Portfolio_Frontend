@@ -21,7 +21,6 @@ function App() {
   const [skillsData, setSkillsData] = useState([]);
   const baseURL = "https://portfoliobackend-ws9z.onrender.com/api";
 
-
   const handleModeChange = (headerState) => {
     setisNightMode(headerState);
   };
@@ -32,12 +31,13 @@ function App() {
       try {
         setIsLoading(true);
 
-        const [experienceRes, educationRes, projectRes, skillsRes] = await Promise.all([
-          axios.get(baseURL + "/experience"),
-          axios.get(baseURL + "/education"),
-          axios.get(baseURL + "/projects"),
-          axios.get(baseURL + "/skills")
-        ]);
+        const [experienceRes, educationRes, projectRes, skillsRes] =
+          await Promise.all([
+            axios.get(baseURL + "/experience"),
+            axios.get(baseURL + "/education"),
+            axios.get(baseURL + "/projects"),
+            axios.get(baseURL + "/skills"),
+          ]);
 
         // Set state variables with the fetched data
         setExperienceData(experienceRes.data);
@@ -94,10 +94,14 @@ function App() {
                 </div>
                 <div className="textContainer">
                   <p className="introText">
-                    My name is Nitin Srivastava. I have 1.5 years of experience
-                    working as a full-stack developer at Yamaha Motor Solutions
-                    India. My diverse skill set allows me to blend into any role
-                    and learn new technologies quickly.
+                    Welcome to my portfolio. This website is my playground to
+                    learn new things. The backend of this application also has
+                    its docker version hosted on docker hub. I have created a
+                    jenkins pipeline for backend from where I can seamlessly
+                    test, build, build the docker image and deploy the docker
+                    image on docker hub. Boasting asides, I am just a quick
+                    learner with experience in frontend, backend and full stack
+                    developer roles.
                   </p>
                 </div>
               </div>
