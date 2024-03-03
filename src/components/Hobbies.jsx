@@ -1,12 +1,19 @@
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import '../component css/Hobbies.css'; // Your custom styles for the carousel
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "../component css/Hobbies.css"; // Your custom styles for the carousel
+import defaultProps from "react-slick/lib/default-props";
 
 const images = [
-  'h1.jpeg',
-  'h2.jpeg',
+  {
+    url: "h1.jpeg",
+    text: "Drumming",
+  },
+  {
+    url: "h2.jpeg",
+    text: "Rapping",
+  },
   // Add more image URLs
 ];
 
@@ -19,7 +26,7 @@ const Hobbies = () => {
     slidesToScroll: 1,
     autoplay: true, // Set autoplay to true
     autoplaySpeed: 3000,
-    arrows: false
+    arrows: false,
   };
 
   return (
@@ -27,7 +34,8 @@ const Hobbies = () => {
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index}>
-            <img src={image} alt={`slide-${index}`} className="hobbieImg" />
+            <img src={image.url} alt={`slide-${index}`} className="hobbieImg" />
+            <p>{image.text}</p>
           </div>
         ))}
       </Slider>
