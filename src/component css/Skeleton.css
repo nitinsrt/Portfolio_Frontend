@@ -1,0 +1,32 @@
+.skeletonHeader {
+  width: 100vw;
+  height: 15vh;
+  background-color: #e0e1dd;
+  position: fixed;
+  z-index: 1200;
+  padding: 1vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftContainerSk {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.rightContainerSk {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+.mainSkeleton{
+    width: 100vw;
+    height: 100vh;
+}

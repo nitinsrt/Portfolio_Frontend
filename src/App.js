@@ -10,6 +10,7 @@ import Skills from "./components/Skills";
 import Hobbies from "./components/Hobbies";
 import axios from "axios";
 import Swal from "sweetalert2";
+import LoadingSkeleton from "./components/LoadingSkeleton";
 
 function App() {
   const [animationActive, setAnimationActive] = useState(false);
@@ -77,164 +78,167 @@ function App() {
 
   return (
     <div className={`App ${isNightMode ? "night-mode" : "day-mode"}`}>
-      <div>
-        <div
-          className={`drop-in-container ${animationActive ? "animate" : ""}`}
-        >
-          <Header toggleState={handleModeChange} />
-        </div>
-        <div
-          className={`content-container ${animationActive ? "animate" : ""}`}
-        >
-          <Element name="home">
-            <section>
-              <div className="push-text img">
-                <div className="imageContainer">
-                  <img src="my photu.jpeg" className="image" />
-                </div>
-                <div className="textContainer">
-                  <p className="introText">
-                    Welcome to my portfolio. This website is my playground to
-                    learn new things. The backend of this application also has
-                    its docker version hosted on docker hub. I have created a
-                    jenkins pipeline for backend from where I can seamlessly
-                    test, build, build the docker image and deploy the docker
-                    image on docker hub. Boasting asides, I am just a quick
-                    learner with experience in frontend, backend and full stack
-                    developer roles.
-                  </p>
-                </div>
-              </div>
-            </section>
-          </Element>
-          <Element name="experience">
-            <section>
-              <div className="workExperience">
-                <div
-                  className={`expTitleContainer ${
-                    animationActive ? "animate" : ""
-                  }`}
-                >
-                  <HeaderTitle title={"Experience"} />
-                </div>
-                {ExperienceData.map((item) => {
-                  return (
-                    <Experience
-                      key={item.id}
-                      src={item.src}
-                      companyName={item.companyName}
-                      role={item.role}
-                      fromTo={item.fromTo}
-                      location={item.location}
-                      lineOne={item.lineOne}
-                      lineTwo={item.lineTwo}
-                      lineThree={item.lineThree}
-                      lineFour={item.lineFour}
-                      isNightMode={isNightMode ? true : false}
-                    />
-                  );
-                })}
-              </div>
-            </section>
-          </Element>
-          <Element name="projects">
-            <section>
-              <div className="workExperience">
-                <div
-                  className={`expTitleContainer ${
-                    animationActive ? "animate" : ""
-                  }`}
-                >
-                  <HeaderTitle title={"Projects"} />
-                </div>
-                {projectData.map((items) => {
-                  return (
-                    <Projects
-                      key={items.id}
-                      title={items.title}
-                      dates={items.dates}
-                      url={items.url}
-                      githubText={items.githubText}
-                      lineOne={items.lineOne}
-                      lineTwo={items.lineTwo}
-                      lineThree={items.lineThree}
-                      lineFour={items.lineFour}
-                      isNightMode={isNightMode ? true : false}
-                    />
-                  );
-                })}
-              </div>
-            </section>
-          </Element>
-          <Element name="education">
-            <section>
-              <div className="workExperience">
-                <div
-                  className={`expTitleContainer ${
-                    animationActive ? "animate" : ""
-                  }`}
-                >
-                  <HeaderTitle title={"Education"} />
-                </div>
-                {educationData.map((items) => {
-                  return (
-                    <Education
-                      key={items.id}
-                      src={items.src}
-                      companyName={items.companyName}
-                      role={items.role}
-                      fromTo={items.fromTo}
-                      location={items.location}
-                      isNightMode={isNightMode ? true : false}
-                    />
-                  );
-                })}
-              </div>
-            </section>
-          </Element>
-          <Element name="skills">
-            <section>
-              <div className="workExperience">
-                <div
-                  className={`expTitleContainer ${
-                    animationActive ? "animate" : ""
-                  }`}
-                >
-                  <HeaderTitle title={"Skills"} />
-                  <div className="skillsContainer">
-                    {skillsData.map((items) => {
-                      return (
-                        <Skills
-                          key={items.id}
-                          title={items.title}
-                          list={items.list}
-                          isNightMode={isNightMode ? true : false}
-                        />
-                      );
-                    })}
+      {isLoading && <LoadingSkeleton/>}
+      {!isLoading && (
+        <div>
+          <div
+            className={`drop-in-container ${animationActive ? "animate" : ""}`}
+          >
+            <Header toggleState={handleModeChange} />
+          </div>
+          <div
+            className={`content-container ${animationActive ? "animate" : ""}`}
+          >
+            <Element name="home">
+              <section>
+                <div className="push-text img">
+                  <div className="imageContainer">
+                    <img src="my photu.jpeg" className="image" />
+                  </div>
+                  <div className="textContainer">
+                    <p className="introText">
+                      Welcome to my portfolio. This website is my playground to
+                      learn new things. The backend of this application also has
+                      its docker version hosted on docker hub. I have created a
+                      jenkins pipeline for backend from where I can seamlessly
+                      test, build, build the docker image and deploy the docker
+                      image on docker hub. Boasting asides, I am just a quick
+                      learner with experience in frontend, backend and full
+                      stack developer roles.
+                    </p>
                   </div>
                 </div>
-              </div>
-            </section>
-          </Element>
-          <Element name="hobbies">
-            <section>
-              <div className="workExperience">
-                <div
-                  className={`expTitleContainer ${
-                    animationActive ? "animate" : ""
-                  }`}
-                >
-                  <HeaderTitle title={"Hobbies"} />
+              </section>
+            </Element>
+            <Element name="experience">
+              <section>
+                <div className="workExperience">
+                  <div
+                    className={`expTitleContainer ${
+                      animationActive ? "animate" : ""
+                    }`}
+                  >
+                    <HeaderTitle title={"Experience"} />
+                  </div>
+                  {ExperienceData.map((item) => {
+                    return (
+                      <Experience
+                        key={item.id}
+                        src={item.src}
+                        companyName={item.companyName}
+                        role={item.role}
+                        fromTo={item.fromTo}
+                        location={item.location}
+                        lineOne={item.lineOne}
+                        lineTwo={item.lineTwo}
+                        lineThree={item.lineThree}
+                        lineFour={item.lineFour}
+                        isNightMode={isNightMode ? true : false}
+                      />
+                    );
+                  })}
                 </div>
-                <div className="hobbie">
-                  <Hobbies />
+              </section>
+            </Element>
+            <Element name="projects">
+              <section>
+                <div className="workExperience">
+                  <div
+                    className={`expTitleContainer ${
+                      animationActive ? "animate" : ""
+                    }`}
+                  >
+                    <HeaderTitle title={"Projects"} />
+                  </div>
+                  {projectData.map((items) => {
+                    return (
+                      <Projects
+                        key={items.id}
+                        title={items.title}
+                        dates={items.dates}
+                        url={items.url}
+                        githubText={items.githubText}
+                        lineOne={items.lineOne}
+                        lineTwo={items.lineTwo}
+                        lineThree={items.lineThree}
+                        lineFour={items.lineFour}
+                        isNightMode={isNightMode ? true : false}
+                      />
+                    );
+                  })}
                 </div>
-              </div>
-            </section>
-          </Element>
+              </section>
+            </Element>
+            <Element name="education">
+              <section>
+                <div className="workExperience">
+                  <div
+                    className={`expTitleContainer ${
+                      animationActive ? "animate" : ""
+                    }`}
+                  >
+                    <HeaderTitle title={"Education"} />
+                  </div>
+                  {educationData.map((items) => {
+                    return (
+                      <Education
+                        key={items.id}
+                        src={items.src}
+                        companyName={items.companyName}
+                        role={items.role}
+                        fromTo={items.fromTo}
+                        location={items.location}
+                        isNightMode={isNightMode ? true : false}
+                      />
+                    );
+                  })}
+                </div>
+              </section>
+            </Element>
+            <Element name="skills">
+              <section>
+                <div className="workExperience">
+                  <div
+                    className={`expTitleContainer ${
+                      animationActive ? "animate" : ""
+                    }`}
+                  >
+                    <HeaderTitle title={"Skills"} />
+                    <div className="skillsContainer">
+                      {skillsData.map((items) => {
+                        return (
+                          <Skills
+                            key={items.id}
+                            title={items.title}
+                            list={items.list}
+                            isNightMode={isNightMode ? true : false}
+                          />
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </Element>
+            <Element name="hobbies">
+              <section>
+                <div className="workExperience">
+                  <div
+                    className={`expTitleContainer ${
+                      animationActive ? "animate" : ""
+                    }`}
+                  >
+                    <HeaderTitle title={"Hobbies"} />
+                  </div>
+                  <div className="hobbie">
+                    <Hobbies />
+                  </div>
+                </div>
+              </section>
+            </Element>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
